@@ -1,11 +1,20 @@
 import type { Metadata } from "next";
-import { Geist_Mono } from "next/font/google";
+import { Bebas_Neue, Open_Sans } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "sonner";
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const bebas = Bebas_Neue({
   subsets: ["latin"],
+  weight: "400",
+  variable: "--font-bebas",
+  display: "swap",
+});
+
+const openSans = Open_Sans({
+  subsets: ["latin"],
+  weight: ["400", "600", "700", "800"],
+  variable: "--font-opensans",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -21,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`antialiased ${geistMono.variable} ${geistMono.className}`}
+        className={` ${bebas.className} ${openSans.className} antialiased bg-[#F5F5F5]`}
       >
         {children}
         <Toaster position="top-right" richColors />
