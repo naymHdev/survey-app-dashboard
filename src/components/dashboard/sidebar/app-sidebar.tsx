@@ -2,14 +2,13 @@
 
 import * as React from "react";
 import {
-  Bot,
-  Frame,
-  LifeBuoy,
-  Map,
-  PieChart,
-  Send,
+  BarChart3,
+  CalendarRange,
+  Crown,
+  MessageSquareMore,
   Settings,
   SquareTerminal,
+  UsersRound,
 } from "lucide-react";
 
 import {
@@ -30,73 +29,39 @@ const data = {
   navMain: [
     {
       title: "Dashboard",
-      url: "/user/dashboard",
+      url: "/dashboard",
       icon: SquareTerminal,
       isActive: true,
     },
     {
-      title: "Shop",
-      url: "/user/shop/products",
-      icon: Bot,
-      items: [
-        {
-          title: "Manage Products",
-          url: "/user/shop/products",
-        },
-        {
-          title: "Manage Categories",
-          url: "/user/shop/category",
-        },
-        {
-          title: "Manage Brands",
-          url: "/user/shop/brand",
-        },
-        {
-          title: "Manage Coupon",
-          url: "/user/shop/manage-coupon",
-        },
-      ],
+      title: "Account Management",
+      url: "/account-management",
+      icon: UsersRound,
     },
-
+    {
+      title: "Match and Venue Management",
+      url: "/match-venue-management",
+      icon: CalendarRange,
+    },
+    {
+      title: "Earning Overview",
+      url: "/earning-overview",
+      icon: BarChart3,
+    },
+    {
+      title: "Support Message",
+      url: "/support-message",
+      icon: MessageSquareMore,
+    },
+    {
+      title: "Manage Subscription",
+      url: "/manage-subscription",
+      icon: Crown,
+    },
     {
       title: "Settings",
-      url: "#",
+      url: "/settings",
       icon: Settings,
-      items: [
-        {
-          title: "Profile",
-          url: "/profile",
-        },
-      ],
-    },
-  ],
-  navSecondary: [
-    {
-      title: "Support",
-      url: "#",
-      icon: LifeBuoy,
-    },
-    {
-      title: "Feedback",
-      url: "#",
-      icon: Send,
-    },
-  ],
-  projects: [
-    {
-      name: "Design Engineering",
-      url: "#",
-      icon: Frame,
-    },
-    {
-      name: "Sales & Marketing",
-      url: "#",
-      icon: PieChart,
-    },
-    {
-      name: "Travel",
-      url: "#",
-      icon: Map,
     },
   ],
 };
@@ -113,7 +78,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                   <Logo />
                 </div>
                 <div className="grid flex-1 text-left text-sm leading-tight">
-                  <h2 className="font-bold text-xl">NextMart</h2>
+                  <h2 className="font-bold text-xl">Nobel Sport</h2>
                 </div>
               </Link>
             </SidebarMenuButton>

@@ -19,6 +19,7 @@ import {
   SidebarMenuSubItem,
 } from "@/components/ui/sidebar";
 import Link from "next/link";
+import { IoMdLogOut } from "react-icons/io";
 
 export function NavMain({
   items,
@@ -73,6 +74,18 @@ export function NavMain({
             </SidebarMenuItem>
           </Collapsible>
         ))}
+        <div>
+          <SidebarMenuItem>
+            <SidebarMenuButton asChild>
+              <p>
+                <span>
+                  <IoMdLogOut className="size-4" />
+                </span>
+                <span>Logout</span>
+              </p>
+            </SidebarMenuButton>
+          </SidebarMenuItem>
+        </div>
       </SidebarMenu>
     </SidebarGroup>
   );

@@ -32,6 +32,7 @@ export default function RootLayout({
       <body
         className={` ${bebas.className} ${openSans.className} antialiased bg-[#F5F5F5]`}
       >
+        {/* <Header /> */}
         {children}
         <Toaster position="top-right" richColors />
       </body>
