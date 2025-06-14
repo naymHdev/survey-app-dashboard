@@ -1,8 +1,5 @@
-
 const AccountManagement = () => {
-  return (
-    <>AccountManagement</>
-);
+  return <>AccountManagement</>;
 };
 
 export default AccountManagement;
