@@ -13,9 +13,8 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
 import { Eye, EyeOff } from "lucide-react";
-import logo from "@/assets/images/ns-logo.png";
+import logo from "@/assets/images/data-logo.png";
 import Image from "next/image";
 import NSInput from "@/components/ui/core/NSInput";
 

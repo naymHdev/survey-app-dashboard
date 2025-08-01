@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 import Link from "next/link";
-import { Eye, EyeOff } from "lucide-react";
+import { ArrowRight, Eye, EyeOff } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -16,7 +16,7 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import logo from "@/assets/images/ns-logo.png";
+import logo from "@/assets/images/data-logo.png";
 import Image from "next/image";
 import NSInput from "@/components/ui/core/NSInput";
 import NSButton from "@/components/ui/core/NSButton";
@@ -128,12 +128,13 @@ export default function LoginForm() {
                   <FormItem className="flex flex-row items-start space-x-3 space-y-0">
                     <FormControl>
                       <Checkbox
+                        className=" data-[active]:border-[#3B82F6] border-[#3B82F6] data-[state=checked]:bg-[#3B82F6] data-[state=checked]:border-[#3B82F6]"
                         checked={field.value}
                         onCheckedChange={field.onChange}
                       />
                     </FormControl>
                     <div className="space-y-1 leading-none">
-                      <FormLabel className="text-sm font-normal text-gray-700">
+                      <FormLabel className="text-sm font-normal text-[#3B82F6]">
                         Remember me
                       </FormLabel>
                     </div>
@@ -149,8 +150,9 @@ export default function LoginForm() {
             </div>
 
             <Link href="/dashboard">
-              <NSButton type="submit" className="w-full rounded-lg py-3">
+              <NSButton type="submit" className="w-full rounded-lg py-3 flex items-center justify-center gap-3">
                 Sign In
+                <ArrowRight className=" w-6 h-6" />
               </NSButton>
             </Link>
           </form>

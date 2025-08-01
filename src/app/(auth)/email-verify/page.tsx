@@ -1,5 +1,5 @@
 import { EmailVerificationForm } from "@/components/modules/auth/email-verification-form";
-import logImg from "@/assets/images/loginImg.png";
+import logImg from "@/assets/images/auth-bg.png";
 import Image from "next/image";
 
 const SendCodePage = () => {

@@ -1,5 +1,5 @@
 import { ResetPasswordForm } from "@/components/modules/auth/reset-password-form";
-import logImg from "@/assets/images/loginImg.png";
+import logImg from "@/assets/images/auth-bg.png";
 import Image from "next/image";
 
 const ResetPasswordPage = () => {

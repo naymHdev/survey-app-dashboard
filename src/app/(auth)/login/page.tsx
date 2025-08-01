@@ -1,5 +1,5 @@
 import LoginForm from "@/components/modules/auth/login-form";
-import logImg from "@/assets/images/loginImg.png";
+import logImg from "@/assets/images/auth-bg.png";
 import Image from "next/image";
 
 const LoginPage = () => {
@@ -13,8 +13,8 @@ const LoginPage = () => {
           <Image
             src={logImg}
             alt="Login Image"
-            width={700}
-            height={700}
+            width={1200}
+            height={1200}
             className="hidden lg:block w-full h-[100vh] object-cover"
           />
         </div>
