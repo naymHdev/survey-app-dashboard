@@ -1,84 +1,64 @@
-import { Bar, BarChart, XAxis, YAxis, ResponsiveContainer } from "recharts";
 import {
-  ChartContainer,
-  ChartTooltip,
-  ChartTooltipContent,
-} from "@/components/ui/chart";
+  Bar,
+  BarChart,
+  XAxis,
+  YAxis,
+  ResponsiveContainer,
+  Tooltip,
+} from "recharts";
 
 const chartData = [
-  { month: "Jan", player: 15, teamManager: 22, venueOwner: 18 },
-  { month: "Feb", player: 12, teamManager: 40, venueOwner: 8 },
-  { month: "Mar", player: 15, teamManager: 22, venueOwner: 18 },
-  { month: "Apr", player: 15, teamManager: 22, venueOwner: 18 },
-  { month: "May", player: 15, teamManager: 22, venueOwner: 18 },
-  { month: "Jun", player: 15, teamManager: 22, venueOwner: 18 },
-  { month: "Jul", player: 15, teamManager: 22, venueOwner: 18 },
-  { month: "Aug", player: 15, teamManager: 22, venueOwner: 18 },
-  { month: "Sep", player: 15, teamManager: 22, venueOwner: 18 },
-  { month: "Oct", player: 15, teamManager: 22, venueOwner: 18 },
-  { month: "Nov", player: 15, teamManager: 22, venueOwner: 18 },
-  { month: "Dec", player: 20, teamManager: 15, venueOwner: 25 },
+  { month: "Jan", value: 50 },
+  { month: "Feb", value: 45 },
+  { month: "Mar", value: 48 },
+  { month: "Apr", value: 30 },
+  { month: "May", value: 35 },
+  { month: "Jun", value: 42 },
+  { month: "Jul", value: 47 },
+  { month: "Aug", value: 52 },
+  { month: "Sep", value: 60 },
+  { month: "Oct", value: 72 },
+  { month: "Nov", value: 80 },
+  { month: "Dec", value: 88 },
 ];
 
-const chartConfig = {
-  venueOwner: {
-    label: "Venue Owner",
-    color: "#10b981",
-  },
-  player: {
-    label: "Player",
-    color: "#06b6d4",
-  },
-  teamManager: {
-    label: "Team Manager",
-    color: "#3b82f6",
-  },
-};
 const EarningChart = () => {
   return (
-    <>
-      <ChartContainer config={chartConfig} className="h-[400px] w-full">
-        <ResponsiveContainer width="100%" height="100%">
-          <BarChart
-            data={chartData}
-            margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
-          >
-            <XAxis
-              dataKey="month"
-              axisLine={false}
-              tickLine={false}
-              tick={{ fontSize: 12 }}
-            />
-            <YAxis
-              axisLine={false}
-              tickLine={false}
-              tick={{ fontSize: 12 }}
-              domain={[0, 60]}
-              ticks={[0, 15, 35, 50]}
-            />
-            <ChartTooltip content={<ChartTooltipContent />} />
-            <Bar
-              dataKey="venueOwner"
-              stackId="a"
-              fill="var(--color-venueOwner)"
-              radius={[0, 0, 4, 4]}
-            />
-            <Bar
-              dataKey="player"
-              stackId="a"
-              fill="var(--color-player)"
-              radius={[0, 0, 0, 0]}
-            />
-            <Bar
-              dataKey="teamManager"
-              stackId="a"
-              fill="var(--color-teamManager)"
-              radius={[4, 4, 0, 0]}
-            />
-          </BarChart>
-        </ResponsiveContainer>
-      </ChartContainer>
-    </>
+    <div style={{ height: 400, width: "100%" }}>
+      <ResponsiveContainer width="100%" height="100%">
+        <BarChart
+          data={chartData}
+          margin={{ top: 10, right: 30, left: 0, bottom: 5 }}
+        >
+          <defs>
+            <linearGradient id="barGradient" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor="#000" stopOpacity={0.9} />
+              <stop offset="100%" stopColor="#00e5ff" stopOpacity={1} />
+            </linearGradient>
+          </defs>
+
+          <XAxis
+            dataKey="month"
+            tick={{ fontSize: 12 }}
+            axisLine={false}
+            tickLine={false}
+          />
+          <YAxis
+            tick={{ fontSize: 12 }}
+            axisLine={false}
+            tickLine={false}
+            domain={[0, 100]}
+          />
+          <Tooltip cursor={{ fill: "transparent" }} />
+          <Bar
+            dataKey="value"
+            fill="url(#barGradient)"
+            radius={[4, 4, 0, 0]}
+            barSize={20}
+          />
+        </BarChart>
+      </ResponsiveContainer>
+    </div>
   );
 };
 
