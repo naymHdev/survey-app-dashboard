@@ -2,13 +2,15 @@
 
 import * as React from "react";
 import {
-  BarChart3,
-  CalendarRange,
+  Bell,
+  ChartColumnBig,
+  ChartPie,
+  Coins,
   Crown,
-  MessageSquareMore,
+  List,
   Settings,
   SquareTerminal,
-  UsersRound,
+  UserCog,
 } from "lucide-react";
 
 import {
@@ -34,29 +36,39 @@ const data = {
       isActive: true,
     },
     {
-      title: "Account Management",
-      url: "/account-management",
-      icon: UsersRound,
+      title: "Account Details",
+      url: "/account-details",
+      icon: UserCog,
     },
     {
-      title: "Match and Venue Management",
-      url: "/match-venue-management",
-      icon: CalendarRange,
+      title: "Demographic Survey",
+      url: "/demographic-survey",
+      icon: ChartPie,
     },
     {
-      title: "Earning Overview",
-      url: "/earning-overview",
-      icon: BarChart3,
+      title: "Survey Management",
+      url: "/survey-management",
+      icon: ChartColumnBig,
     },
     {
-      title: "Support Message",
-      url: "/support-message",
-      icon: MessageSquareMore,
-    },
-    {
-      title: "Manage Subscription",
-      url: "/manage-subscription",
+      title: "Rewards Management",
+      url: "/rewards-management",
       icon: Crown,
+    },
+    {
+      title: "Earning",
+      url: "/earning",
+      icon: Coins,
+    },
+    {
+      title: "Customer Support",
+      url: "/customer-support",
+      icon: List,
+    },
+    {
+      title: "Push Notification",
+      url: "/push-notification",
+      icon: Bell,
     },
     {
       title: "Settings",
@@ -78,7 +90,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                   <Logo />
                 </div>
                 <div className="grid flex-1 text-left text-sm leading-tight">
-                  <h2 className="font-bold text-xl">Nobel Sport</h2>
+                  <h2 className="font-bold text-xl">Survey Coin</h2>
                 </div>
               </Link>
             </SidebarMenuButton>

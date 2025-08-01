@@ -75,9 +75,9 @@ export function NavMain({
           </Collapsible>
         ))}
         <div>
-          <SidebarMenuItem>
+          <SidebarMenuItem className="hover:cursor-pointer">
             <SidebarMenuButton asChild>
-              <p>
+              <p className="">
                 <span>
                   <IoMdLogOut className="size-4" />
                 </span>
