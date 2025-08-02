@@ -6,8 +6,10 @@ import { NSPickerWithInput } from "@/components/ui/core/NSPickerWithInput";
 import { CirclePlus } from "lucide-react";
 import SurveyTable from "./SurveyTable";
 import Link from "next/link";
+import { useState } from "react";
 
 const SurveyManagement = () => {
+  const [date, setDate] = useState<Date | undefined>(new Date("2025-06-10"));
   return (
     <>
       <div>
@@ -24,7 +26,11 @@ const SurveyManagement = () => {
               placeholder="Search here...."
               type="search"
             />
-            <NSPickerWithInput />
+            <NSPickerWithInput
+              date={date}
+              setDate={setDate}
+              className="w-full px-3 py-6 focus:outline-none focus-visible:ring-0 focus-visible:border-neutral-200"
+            />
           </div>
           <div className="col-span-full md:col-span-2">
             <NSButton className="w-full py-3 hover:bg-red-500 hover:text-white rounded-lg bg-transparent text-red-600 border border-red-400">

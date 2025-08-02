@@ -1,13 +1,13 @@
-import AccountDetails from "@/components/modules/AccountDetails";
+import UserDetails from "@/components/modules/AccountDetails/UserDetails";
 import NSPageSectionTitle from "@/components/ui/core/NSPageSectionTitle";
 
-const AccountDetailsPage = () => {
+const UserDetailsPage = () => {
   return (
     <>
       <NSPageSectionTitle title="Account Details" />
-      <AccountDetails />
+      <UserDetails />
     </>
   );
 };
 
-export default AccountDetailsPage;
+export default UserDetailsPage;

@@ -85,8 +85,8 @@ export function NavMain({
         ))}
         <div>
           <SidebarMenuItem className="hover:cursor-pointer">
-            <SidebarMenuButton asChild>
-              <p className="">
+            <SidebarMenuButton asChild className="hover:bg-sc-primary hover:text-sc-white py-5">
+              <p className="text-sc-primary">
                 <span>
                   <IoMdLogOut className="size-4" />
                 </span>
