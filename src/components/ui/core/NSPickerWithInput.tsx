@@ -13,10 +13,7 @@ import {
 } from "@/components/ui/popover";
 
 function formatDate(date: Date | undefined) {
-  if (!date) {
-    return "";
-  }
-
+  if (!date) return "";
   return date.toLocaleDateString("en-US", {
     day: "2-digit",
     month: "long",
@@ -25,17 +22,21 @@ function formatDate(date: Date | undefined) {
 }
 
 function isValidDate(date: Date | undefined) {
-  if (!date) {
-    return false;
-  }
-  return !isNaN(date.getTime());
+  return !!date && !isNaN(date.getTime());
 }
 
-export function NSPickerWithInput() {
+interface NSPickerWithInputProps {
+  className?: string;
+  date?: Date;
+  setDate?: React.Dispatch<React.SetStateAction<Date | undefined>>;
+}
+
+export function NSPickerWithInput({
+  className = "",
+  date,
+  setDate,
+}: NSPickerWithInputProps) {
   const [open, setOpen] = React.useState(false);
-  const [date, setDate] = React.useState<Date | undefined>(
-    new Date("2025-06-01")
-  );
   const [month, setMonth] = React.useState<Date | undefined>(date);
   const [value, setValue] = React.useState(formatDate(date));
 
@@ -46,13 +47,13 @@ export function NSPickerWithInput() {
           id="date"
           value={value}
           placeholder="June 01, 2025"
-          className="bg-background pr-10 py-6 focus:outline-none focus-visible:ring-0 focus-visible:border-neutral-200"
+          className={`${className}`}
           onChange={(e) => {
-            const date = new Date(e.target.value);
+            const inputDate = new Date(e.target.value);
             setValue(e.target.value);
-            if (isValidDate(date)) {
-              setDate(date);
-              setMonth(date);
+            if (isValidDate(inputDate)) {
+              setMonth(inputDate);
+              setDate?.(inputDate); // ✅ safely call setDate
             }
           }}
           onKeyDown={(e) => {
@@ -85,10 +86,12 @@ export function NSPickerWithInput() {
               captionLayout="dropdown"
               month={month}
               onMonthChange={setMonth}
-              onSelect={(date) => {
-                setDate(date);
-                setValue(formatDate(date));
-                setOpen(false);
+              onSelect={(selectedDate) => {
+                if (selectedDate) {
+                  setValue(formatDate(selectedDate));
+                  setDate?.(selectedDate);
+                  setOpen(false);
+                }
               }}
             />
           </PopoverContent>

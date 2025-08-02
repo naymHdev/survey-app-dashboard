@@ -5,14 +5,17 @@ import NSInput from "@/components/ui/core/NSInput";
 import { NSPickerWithInput } from "@/components/ui/core/NSPickerWithInput";
 import { CirclePlus } from "lucide-react";
 import SurveyTable from "./SurveyTable";
+import Link from "next/link";
 
 const SurveyManagement = () => {
   return (
     <>
       <div>
-        <NSButton className=" flex items-center justify-center gap-2 w-full rounded-lg py-4">
-          <CirclePlus /> Add Survey
-        </NSButton>
+        <Link href="/survey-management/add-survey">
+          <NSButton className=" flex items-center justify-center gap-2 w-full rounded-lg py-4">
+            <CirclePlus /> Add Survey
+          </NSButton>
+        </Link>
 
         <div className=" py-4 grid grid-cols-1 md:grid-cols-7 gap-4">
           <div className=" col-span-full md:col-span-5 flex items-center gap-4">

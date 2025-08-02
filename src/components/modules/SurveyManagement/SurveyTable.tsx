@@ -70,7 +70,7 @@ const SurveyTable = () => {
                 key={index}
                 className={index % 2 === 0 ? "bg-gray-50" : "bg-white"}
               >
-                <TableCell className="px-4 py-3">
+                <TableCell className="px-4 py-4">
                   <Checkbox aria-label={`Select survey ${survey.id}`} />
                 </TableCell>
                 <TableCell className="px-4 py-3">{survey.id}</TableCell>
