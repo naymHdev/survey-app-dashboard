@@ -9,7 +9,7 @@ const DemographicSurvey = () => {
   return (
     <>
       <Tabs defaultValue="demographicSurvey" className="mt-6 font-sora">
-        <div className=" flex items-center justify-center bg-sc-white shadow-sm border pt-2 rounded-lg">
+        <div className=" flex items-center justify-center bg-sc-white shadow-sm border py-2 rounded-lg">
           <TabsList className="flex flex-wrap items-center justify-center space-x-6 bg-transparent">
             <TabsTrigger
               value="demographicSurvey"
