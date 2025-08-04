@@ -63,7 +63,7 @@ const AddSurveyForm = () => {
       expireDate: date,
     };
 
-    console.log(data, "formData__", formData);
+    // console.log(data, "formData__", formData);
   };
 
   return (

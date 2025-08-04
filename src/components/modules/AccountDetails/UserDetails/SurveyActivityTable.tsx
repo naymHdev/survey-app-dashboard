@@ -10,19 +10,19 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
-import { ChevronLeft, ChevronRight, Eye, Ban } from "lucide-react";
-import Link from "next/link";
-import BlockUserModal from "./BlockUserModal";
+import { ChevronLeft, ChevronRight, Eye } from "lucide-react";
+import { Checkbox } from "@/components/ui/checkbox";
+import SQAModal from "./SQAModal";
 
 const userData = {
-  id: "RL0393-10000",
-  name: "Eleanor Pena",
-  email: "anita123@gmail.com",
-  completedSurvey: 12,
-  dateTime: "11 Feb, 2025",
+  serial: "01",
+  surveyTitle: "Shopping Habits Survey",
+  CompletionDate: "May 15, 2025",
+  pointsEarned: 12,
+  status: "Pending",
 };
 
-const AccountsTable = () => {
+const SurveyActivityTable = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedUser, setSelectedUser] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -34,19 +34,19 @@ const AccountsTable = () => {
           <TableHeader>
             <TableRow className=" bg-sc-primary hover:bg-sc-primary/90">
               <TableHead className="text-white py-4 font-semibold text-center">
-                Member ID
+                Serial
               </TableHead>
               <TableHead className="text-white font-semibold text-center">
-                Name
+                Survey Title
               </TableHead>
               <TableHead className="text-white font-semibold text-center">
-                Email
+                Completion Date
               </TableHead>
               <TableHead className="text-white font-semibold text-center">
-                Surveys Completed
+                Points Earned
               </TableHead>
               <TableHead className="text-white font-semibold text-center">
-                Date & Time
+                Status
               </TableHead>
               <TableHead className="text-white font-semibold text-center">
                 Action
@@ -56,7 +56,7 @@ const AccountsTable = () => {
           <TableBody>
             {Array(15)
               .fill(userData)
-              .map((user, index) => (
+              .map((survey, index) => (
                 <TableRow
                   key={index}
                   className={`py-6 ${
@@ -64,35 +64,30 @@ const AccountsTable = () => {
                   }`}
                 >
                   <TableCell className="font-medium text-center py-6">
-                    {user.id}
-                  </TableCell>
-                  <TableCell className="font-medium text-center">
-                    {user.name}
-                  </TableCell>
-                  <TableCell className="font-medium text-center">
-                    {user.email}
-                  </TableCell>
-                  <TableCell className="font-medium text-center">
-                    {user.completedSurvey}
-                  </TableCell>
-                  <TableCell className="font-medium text-center">
-                    {user.dateTime}
-                  </TableCell>
-                  <TableCell className="font-medium text-center">
                     <div className=" flex items-center justify-center gap-2">
-                      <Link href={`/account-details/${user.id}`}>
-                        <button className=" cursor-pointer">
-                          <Eye
-                            className=" text-sc-primary size-5"
-                            onClick={() => {
-                              setSelectedUser(user);
-                              setIsModalOpen(true);
-                            }}
-                          />
-                        </button>
-                      </Link>
-                   
-                      <BlockUserModal />
+                      <Checkbox />#{survey.serial}
+                    </div>
+                  </TableCell>
+                  <TableCell className="font-medium text-center">
+                    {survey.surveyTitle}
+                  </TableCell>
+                  <TableCell className="font-medium text-center">
+                    {survey.CompletionDate}
+                  </TableCell>
+                  <TableCell className="font-medium text-center">
+                    {survey.pointsEarned}
+                  </TableCell>
+                  <TableCell className="font-medium text-center">
+                    {survey.status}
+                  </TableCell>
+                  <TableCell className="font-medium text-center">
+                    <div className="flex items-center justify-center gap-2">
+                      <button className=" cursor-pointer">
+                        <SQAModal
+                          setSelectedUser={setSelectedUser}
+                          survey={survey}
+                        />
+                      </button>
                     </div>
                   </TableCell>
                 </TableRow>
@@ -108,7 +103,7 @@ const AccountsTable = () => {
           size="sm"
           onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
           disabled={currentPage === 1}
-          className="h-8 w-8 p-0 rounded-full border-sc-primary text-sc-primary"
+          className="h-8 w-8 p-0 rounded-full"
         >
           <ChevronLeft className="h-4 w-4" />
         </Button>
@@ -120,7 +115,7 @@ const AccountsTable = () => {
             size="sm"
             onClick={() => setCurrentPage(page)}
             className={`h-8 w-8 p-0 rounded-full ${
-              currentPage === page ? "bg-sc-primary hover:bg-sc-primary/90" : "border-sc-primary text-sc-primary"
+              currentPage === page ? "bg-sc-primary hover:bg-sc-primary/90" : ""
             }`}
           >
             {page}
@@ -132,7 +127,7 @@ const AccountsTable = () => {
           size="sm"
           onClick={() => setCurrentPage(Math.min(30, currentPage + 1))}
           disabled={currentPage === 30}
-          className="h-8 w-8 p-0 rounded-full border-sc-primary text-sc-primary"
+          className="h-8 w-8 p-0 rounded-full"
         >
           <ChevronRight className="h-4 w-4" />
         </Button>
@@ -141,4 +136,4 @@ const AccountsTable = () => {
   );
 };
 
-export default AccountsTable;
+export default SurveyActivityTable;

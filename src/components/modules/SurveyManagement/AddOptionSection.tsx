@@ -1,46 +1,18 @@
 "use client";
 
-import { useState } from "react";
-import { Plus, Edit3, Trash2, Shuffle, Image } from "lucide-react";
-
+import { Plus, Trash2, Image } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
-import { Switch } from "@/components/ui/switch";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import { Separator } from "@/components/ui/separator";
 import NSInput from "@/components/ui/core/NSInput";
-import {
-  Controller,
-  FieldErrors,
-  FieldValues,
-  UseFormRegister,
-} from "react-hook-form";
 
 interface AddOptionSectionProps {
-  register: UseFormRegister<FieldValues>;
-  errors: FieldErrors;
-  control: any;
   options: string[];
   setOptions: React.Dispatch<React.SetStateAction<string[]>>;
 }
 export default function AddOptionSection({
-  register,
-  errors,
-  control,
   options,
   setOptions,
 }: AddOptionSectionProps) {
-  const [isRequired, setIsRequired] = useState(false);
-  const [conditionalLogic, setConditionalLogic] = useState(false);
-
   const addOption = () => {
     setOptions([...options, ""]);
   };
@@ -104,135 +76,6 @@ export default function AddOptionSection({
               </Button>
             </div>
           ))}
-        </div>
-
-        {/* Required and Randomize Options */}
-        <div className="flex items-center space-x-8 pt-2">
-          <div className="flex items-center space-x-2">
-            <Trash2 className="h-4 w-4 text-red-500" />
-            <span className="text-sm text-gray-700">Required</span>
-            <Switch
-              checked={isRequired}
-              onCheckedChange={setIsRequired}
-              className="data-[state=checked]:bg-gray-600"
-            />
-          </div>
-          <div className="flex items-center space-x-2">
-            <Shuffle className="h-4 w-4 text-gray-500" />
-            <span className="text-sm text-gray-700">Randomize Options</span>
-          </div>
-        </div>
-      </div>
-
-      <Separator className="my-6" />
-
-      {/* Enter Conditional Logic */}
-      <div className="space-y-4">
-        <div className="flex items-center justify-between">
-          <h3 className="text-[16px] text-sc-dark-gray font-normal">
-            Enter Conditional Logic
-          </h3>
-          <Switch
-            checked={conditionalLogic}
-            onCheckedChange={setConditionalLogic}
-            className="data-[state=checked]:bg-gray-600"
-          />
-        </div>
-
-        {/* Conditional Logic Builder */}
-        <div className="flex flex-col lg:flex-row items-center gap-3">
-          <span className="text-sm text-gray-700">If</span>
-          <div className=" flex w-full flex-col lg:flex-row gap-3">
-            <Controller
-              name="previousQuestion"
-              control={control}
-              defaultValue=""
-              rules={{ required: true }}
-              render={({ field }) => (
-                <Select value={field.value} onValueChange={field.onChange}>
-                  <SelectTrigger className="py-6 bg-sc-primary/5 border-none shadow-none leading-snug w-full">
-                    <SelectValue placeholder="Select Previous Question" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="q1">Question 1</SelectItem>
-                    <SelectItem value="q2">Question 2</SelectItem>
-                  </SelectContent>
-                </Select>
-              )}
-            />
-            {errors.previousQuestion && (
-              <p className="text-red-500 text-sm">This field is required</p>
-            )}
-            <Controller
-              name="condition"
-              control={control}
-              defaultValue="equal"
-              render={({ field }) => (
-                <Select value={field.value} onValueChange={field.onChange}>
-                  <SelectTrigger className="py-6 bg-sc-primary/5 border-none shadow-none leading-snug w-full">
-                    <SelectValue />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="equal">Equal</SelectItem>
-                    <SelectItem value="not-equal">Not Equal</SelectItem>
-                    <SelectItem value="greater">Greater</SelectItem>
-                    <SelectItem value="less">Less</SelectItem>
-                  </SelectContent>
-                </Select>
-              )}
-            />
-            {errors.condition && (
-              <p className="text-red-500 text-sm">This field is required</p>
-            )}
-            <NSInput
-              placeholder="Value Input"
-              className="py-6 bg-sc-primary/5 border-none shadow-none leading-snug"
-              {...register("conditionalValue", { required: true })}
-            />
-          </div>
-        </div>
-      </div>
-
-      <Separator className="my-6" />
-
-      {/* Enter Question Section */}
-      <div className="space-y-4">
-        <div className="flex items-center justify-between">
-          <h3 className="text-base font-medium text-gray-900">
-            Enter Question
-          </h3>
-          <div className="flex items-center space-x-2">
-            <span className="text-sm text-gray-700">Choose Question Type</span>
-            <Controller
-              name="answerType"
-              defaultValue={"checkbox"}
-              control={control}
-              render={({ field }) => (
-                <Select value={field.value} onValueChange={field.onChange}>
-                  <SelectTrigger className="py-6 bg-sc-primary/5 border-none shadow-none leading-snug">
-                    <SelectValue />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="checkbox">Checkbox</SelectItem>
-                    <SelectItem value="radio">Radio</SelectItem>
-                    <SelectItem value="text">Text</SelectItem>
-                    <SelectItem value="dropdown">Dropdown</SelectItem>
-                  </SelectContent>
-                </Select>
-              )}
-            />
-          </div>
-        </div>
-
-        <div className="relative">
-          <Textarea
-            placeholder="e.g, How often do you shop for non-essential items?"
-            className="min-h-[80px]  bg-sc-primary/5 border-none shadow-none leading-snug"
-            {...register("lastQuestion", { required: true })}
-          />
-          {errors.lastQuestion && (
-            <span className="text-red-400 text-sm">This field is required</span>
-          )}
         </div>
       </div>
     </div>

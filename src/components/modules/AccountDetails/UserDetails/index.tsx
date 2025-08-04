@@ -3,11 +3,14 @@
 import { Card } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import UserProfileSection from "./UserProfileSection";
+import DemographicsTab from "./DemographicsTab";
+import SurveyActivityTab from "./SurveyActivityTab";
+import PointsRewardsTab from "./PointsRewardsTab/PointsRewardsTab";
 
 const UserDetails = () => {
   return (
     <>
-      <div>
+      <div className=" font-sora">
         {/* Navigation Tabs */}
         <Tabs defaultValue="demographics" className="mt-6">
           <div className=" flex items-center justify-center bg-sc-white shadow-sm border pt-2 rounded-lg">
@@ -39,15 +42,15 @@ const UserDetails = () => {
             </Card>
             <Card className=" col-span-full lg:col-span-5 p-4 last:p-6 border-none w-full">
               <TabsContent value="demographics">
-                <p>Demographics</p>
+                <DemographicsTab />
               </TabsContent>
 
               <TabsContent value="surveyActivity">
-                <p>Survey Activity</p>
+                <SurveyActivityTab />
               </TabsContent>
 
               <TabsContent value="pointsRewards">
-                <p>Points & Rewards</p>
+                <PointsRewardsTab />
               </TabsContent>
             </Card>
           </section>

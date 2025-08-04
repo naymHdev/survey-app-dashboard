@@ -48,7 +48,7 @@ export function NavMain({
               <SidebarMenuButton
                 asChild
                 tooltip={item.title}
-                className={`text-sc-primary hover:bg-sc-primary hover:text-sc-white py-5 ${
+                className={`text-sc-primary font-sora hover:bg-sc-primary hover:text-sc-white py-5 ${
                   pathname === item.url && " bg-sc-primary text-sc-white py-5"
                 }`}
               >
@@ -84,9 +84,9 @@ export function NavMain({
           </Collapsible>
         ))}
         <div>
-          <SidebarMenuItem className="hover:cursor-pointer">
-            <SidebarMenuButton asChild className="hover:bg-sc-primary hover:text-sc-white py-5">
-              <p className="text-sc-primary">
+          <SidebarMenuItem className="hover:cursor-pointer font-sora">
+            <SidebarMenuButton asChild className=" hover:text-[#5F1011] py-5">
+              <p className="text-[#5F1011]">
                 <span>
                   <IoMdLogOut className="size-4" />
                 </span>

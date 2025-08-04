@@ -1,8 +1,13 @@
+import DemographicSurvey from "@/components/modules/DemographicSurvey";
+import NSPageSectionTitle from "@/components/ui/core/NSPageSectionTitle";
 
 const DemographicSurveyPage = () => {
   return (
-    <>DemographicSurveyPage</>
-);
+    <>
+      <NSPageSectionTitle title="Demographic Survey" />
+      <DemographicSurvey />
+    </>
+  );
 };
 
 export default DemographicSurveyPage;
