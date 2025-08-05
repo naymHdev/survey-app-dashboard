@@ -7,9 +7,9 @@ import { Switch } from "@/components/ui/switch";
 import NSInput from "@/components/ui/core/NSInput";
 import { Card, CardContent } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
-import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import DescriptionEditor from "./DescriptionEditor";
+import { Button } from "@/components/ui/button";
 
 interface Option {
   points: string;
@@ -44,7 +44,7 @@ const AddGiftCardModal = () => {
               <h3 className=" text-lg font-parkinsans font-medium">
                 Enter Gift Card Title
               </h3>
-              <Switch className="data-[state=checked]:bg-sc-primary data-[state=unchecked]:bg-gray-300" />
+              <Switch className="data-[state=checked]:bg-sc-primary data-[state=unchecked]:bg-gray-300 cursor-pointer" />
             </div>
             <div className=" mt-4">
               <NSInput className=" py-6" placeholder="Enter Gift Card Title" />
@@ -60,6 +60,7 @@ const AddGiftCardModal = () => {
                   variant="ghost"
                   size="icon"
                   onClick={handleAddOption}
+                  className=" cursor-pointer"
                 >
                   <CirclePlus className="h-6 w-6" />
                 </Button>
