@@ -1,8 +1,13 @@
+import PushNotification from "@/components/modules/PushNotification";
+import NSPageSectionTitle from "@/components/ui/core/NSPageSectionTitle";
 
 const PushNotificationPage = () => {
   return (
-    <>PushNotificationPage</>
-);
+    <>
+      <NSPageSectionTitle title="Push Notification" />
+      <PushNotification />
+    </>
+  );
 };
 
 export default PushNotificationPage;

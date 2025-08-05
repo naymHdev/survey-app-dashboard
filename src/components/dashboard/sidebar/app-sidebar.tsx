@@ -3,6 +3,7 @@
 import * as React from "react";
 import {
   Bell,
+  BellDot,
   ChartColumnBig,
   ChartPie,
   Coins,
@@ -71,13 +72,17 @@ const data = {
       icon: Bell,
     },
     {
+      title: "Notification",
+      url: "/notification",
+      icon: BellDot,
+    },
+    {
       title: "Settings",
       url: "/settings",
       icon: Settings,
     },
   ],
 };
-
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar collapsible="icon" {...props} className=" font-sora">
