@@ -3,16 +3,16 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import GiftCardTab from "./GiftCardTab/GiftCardTab";
 import CouponTab from "./CouponTab/CouponTab";
-import { CirclePlus, SquarePen } from "lucide-react";
-import NSButton from "@/components/ui/core/NSButton";
 import AddGiftCardModal from "./GiftCardTab/AddGiftCardModal";
 import UpdateGiftCardModal from "./GiftCardTab/UpdateGiftCardModal";
+import AddCouponModal from "./CouponTab/AddCouponModal";
+import UpdateCouponModal from "./CouponTab/UpdateCouponModal";
 const RewardManagement = () => {
   return (
     <>
       <div className=" font-sora relative">
         {/* Navigation Tabs */}
-        <Tabs defaultValue="giftCard" className="mt-32">
+        <Tabs defaultValue="coupon" className="mt-32">
           <div className=" flex items-center justify-center bg-sc-white shadow-sm border pt-2 rounded-lg">
             <TabsList className="flex flex-wrap items-center justify-center space-x-6 bg-transparent">
               <TabsTrigger
@@ -56,16 +56,13 @@ const RewardManagement = () => {
                     <p className=" text-sm leading-snug text-sc-dark-gray">
                       Number of 10 points equal to 1 dollar.
                     </p>
-                    <SquarePen className="w-6 h-6" />
+                    <UpdateCouponModal />
                   </div>
                   <h3 className="mt-2 text-[16px] font-bold text-sc-charcoal-logic">
                     Minimum Points to Redeem = 150
                   </h3>
                 </div>
-                <NSButton className=" flex items-center justify-center w-full gap-4 rounded-lg py-6">
-                  <CirclePlus className=" w-6 h-6" />
-                  Add Coupon
-                </NSButton>
+                <AddCouponModal />
               </section>
               <CouponTab />
             </TabsContent>
