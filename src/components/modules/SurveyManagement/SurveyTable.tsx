@@ -10,6 +10,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { ArrowRight, Eye } from "lucide-react";
+import Link from "next/link";
 import { useState } from "react";
 
 const surveys = [
@@ -91,7 +92,9 @@ const SurveyTable = () => {
                   {survey.participants}
                 </TableCell>
                 <TableCell className="px-4 py-3 text-center flex items-center justify-center">
-                  <Eye className="h-5 w-5 text-gray-600 cursor-pointer hover:text-blue-600" />
+                  <Link href={`/survey-management/${survey.id}`}>
+                    <Eye className="h-5 w-5 text-gray-600 cursor-pointer hover:text-blue-600" />
+                  </Link>
                 </TableCell>
               </TableRow>
             ))}
