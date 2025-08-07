@@ -6,7 +6,7 @@ const DemographicSurveyTab = () => {
   return (
     <>
       <div className="mt-4 flex flex-col lg:flex-row gap-4 items-center justify-between">
-        <div className=" w-full border shadow-sm rounded-lg py-2 px-3">
+        <div className=" w-full border shadow-sm rounded-lg py-1.5 px-3">
           <p className=" text-lg font-normal text-sc-dark-gray">
             Number of User
           </p>
