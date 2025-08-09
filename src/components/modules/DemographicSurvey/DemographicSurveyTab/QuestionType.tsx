@@ -16,6 +16,11 @@ import {
 } from "react-hook-form";
 import AddOptionSection from "../../SurveyManagement/AddOptionSection";
 import NSInput from "@/components/ui/core/NSInput";
+import MultipleChoice from "./MultipleChoice";
+import Checkboxes from "./Checkboxes";
+import Ranking from "./Ranking";
+import Rating from "./Rating";
+import ImageUpload from "./ImageUpload";
 
 interface QuestionTypeProps {
   register: UseFormRegister<FieldValues>;
@@ -69,14 +74,21 @@ const QuestionType = ({
       <div className="mt-4 space-y-4">
         {questionType === "textResponse" && (
           <NSInput
-            placeholder="Open-Ended (Text Response)"
+            placeholder="Short Answer Text"
             {...register("TextResponse", { required: true })}
           />
         )}
 
-        {["multipleChoice", "checkbox", "dropdown"].includes(questionType) && (
+        {questionType === "multipleChoice" && <MultipleChoice />}
+        {questionType === "checkbox" && <Checkboxes />}
+
+        {["dropdown"].includes(questionType) && (
           <AddOptionSection options={options} setOptions={setOptions} />
         )}
+
+        {questionType === "ranking" && <Ranking />}
+        {questionType === "scaleRating" && <Rating />}
+        {questionType === "imageUpload" && <ImageUpload />}
       </div>
     </>
   );
